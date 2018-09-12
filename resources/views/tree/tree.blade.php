@@ -1,8 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div id="container">
+    <div class="row">
+        <div class="col sm-12">
+            <button class="btn btn-primary" onclick="generarExcel()">Generar Excel</button>
+        </div>
+    </div>
     <div id="div_flex">
-        <a href="#" onclick="test()">test</a>
+        
         <div id="div_tree">
             <ul>
                 @foreach($dominios as $dominio => $value1) <!-- Dominio -->
@@ -18,7 +23,7 @@
                                                     <ul>
                                                         @foreach($riesgos as $riesgo => $value4) <!-- Riesgo -->
                                                             @if($value3->subp_id == $value4->subp_id)
-                                                                <li>{{ $value4->rgo_nombre_es }}</li>
+                                                                <li onclick="cargarActividadesYControles({{ $value4->rgo_id }}); return false;">{{ $value4->rgo_nombre_es }}</li>
                                                             @endif
                                                         @endforeach
                                                     </ul>
@@ -35,11 +40,13 @@
             </ul>
         </div>
         <div id="div_block">
+                <h3>CONTROLES ASOCIADO</h3>
             <div id="div_controles">
-                CONTROLES ASOCIADO
+                
             </div>
+        <h3>ACTIVIDADES ASOCIADAS</h3>
             <div id="div_actividades">
-                ACTIVIDADES ASOCIADAS
+                
             </div>            
         </div>
     </div>
