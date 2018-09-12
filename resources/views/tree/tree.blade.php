@@ -2,6 +2,7 @@
 @section('content')
 <div id="container">
     <div id="div_flex">
+        <a href="#" onclick="test()">test</a>
         <div id="div_tree">
             <ul>
                 @foreach($dominios as $dominio => $value1) <!-- Dominio -->
