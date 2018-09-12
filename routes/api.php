@@ -26,12 +26,14 @@ Route::get('riesgos', function() {
     return Riesgo::all();
 });
 
-Route::post('generar_csv', function(Request $request) {
-    //print_r($request);
-    //echo('asdasdasdasd');
-    //return Article::create($request->all);
-    return $request->all();
-});
+// Route::post('generar_csv', function(Request $request) {
+//     //print_r($request);
+//     //echo('asdasdasdasd');
+//     //return Article::create($request->all);
+//     return $request->all();
+// });
+
+Route::post('treeexcel', 'TreeController@export')->name('treeexcel');
 
 
 Route::get('cargar_actividades/{rgo_id}', function($rgo_id) {

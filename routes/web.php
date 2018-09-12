@@ -14,6 +14,7 @@
 // 
 Route::get('/tree/tree', 'TreeController@viewTree')->name('tree');
 
+
 Route::get('/', function () {
     return view('welcome');
 });

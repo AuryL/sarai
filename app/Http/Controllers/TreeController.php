@@ -9,6 +9,8 @@ use App\Riesgo;
 use App\Control;
 use App\Actividad;
 
+use App\Exports\TreeExport;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -17,9 +19,18 @@ use Redirect;
 use Session;
 use Validator;
 
+use Maatwebsite\Excel\Excel;
 
 class TreeController extends Controller
 {
+    private $excel;
+
+    public function __construct(Excel $excel)
+    {
+        $this->excel = $excel;
+    }
+    
+
     public function viewTree()
     {        
         $user = Auth::user();
@@ -32,5 +43,10 @@ class TreeController extends Controller
         $actividades = Actividad::all();
 
         return view('/tree/tree', ['dominios' => $dominios, 'procesos' => $procesos, 'subprocesos' => $subprocesos, 'riesgos' => $riesgos, 'controles' => $controles, 'actividades' => $actividades]);
+    }
+    public function export() 
+    {
+        $riesgos = request('riesgos');
+        return $this->excel->download(new TreeExport($riesgos), 'riesgos.xlsx');
     }
 }
