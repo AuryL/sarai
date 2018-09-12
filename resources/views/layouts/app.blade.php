@@ -65,7 +65,8 @@
                         @else
 
                             <ul class="nav">
-                                <li><a href="{{ route('tree') }}">RISKS´ TREE</a></li>                                
+                                <li><a href="{{ route('tree') }}">RISKS´ TREE</a></li>  
+                                <li><a href="{{ route('tablaTree') }}">Tabla Tree</a></li>                               
                                 <li><a href="">Usuarios</a>
                                     <ul>
                                         <li><a href="">Alta</a></li>

@@ -33,4 +33,9 @@ class TreeController extends Controller
 
         return view('/tree/tree', ['dominios' => $dominios, 'procesos' => $procesos, 'subprocesos' => $subprocesos, 'riesgos' => $riesgos, 'controles' => $controles, 'actividades' => $actividades]);
     }
+
+    public function viewTablaTree()
+    {  
+        return view('/tree/tablaTree');
+    }
 }

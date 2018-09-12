@@ -14,6 +14,8 @@
 Use App\Riesgo;
 // 
 Route::get('/tree/tree', 'TreeController@viewTree')->name('tree');
+Route::get('/tree/tablaTree', 'TreeController@viewTablaTree')->name('tablaTree');
+
 
 Route::get('riesgos', function() {
     // If the Content-Type and Accept headers are set to 'application/json', 
